@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Admin>
+
+@{
+    ViewBag.Title = "Adminler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+<h2>Admin Lisitesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Admin Ekle", "Create")
+</p>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminRole)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminSurname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminRole)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.AdminId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.AdminId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.AdminId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

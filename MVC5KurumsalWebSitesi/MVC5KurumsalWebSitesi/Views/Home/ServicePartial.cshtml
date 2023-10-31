@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Service>
+
+@{
+    Layout = null;
+}
+
+@*Home index sayfasındaki kodları alıp bu partial içine taşıdık index sayfasında partial olarak çağırdık*@
+
+<div class="col-lg-12">
+    <h4 class="heading">Hizmetlerimiz</h4>
+    <div class="row">
+        <section id="projects">
+            <ul id="thumbs" class="portfolio">
+                @foreach (var item in Model)
+                {
+                    <li class="col-lg-3 design" data-id="id-0" data-type="web">
+                        <div class="item-thumbs">
+                            <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="@item.Baslik" href="@item.ImageUrl">
+                                <span class="overlay-img"></span>
+                                <span class="overlay-img-thumb font-icon-plus"></span>
+                            </a>
+                            <img src="@item.ImageUrl" alt="@item.Aciklama">
+                        </div>
+                    </li>
+                }
+            </ul>
+        </section>
+    </div>
+</div>
+

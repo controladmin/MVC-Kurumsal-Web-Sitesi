@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Header>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+
+<p>
+    @Html.ActionLink("Yeni Kimlik Ekle", "Create")
+</p>
+<table class="table table-bordered table table-hover table-responsive-sm" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keywords)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unvan)
+            </th>
+            <th>Ayarlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keywords)
+                </td>
+                <td>
+                    @*ckeditor kullandığımızda kalın yazı yazınca html etiketi ile geliyor normal gelsin diye Raw etiketini kullandık*@
+                    @Html.Raw(item.Description)
+                </td>
+                <td>
+                    <img class="img-responsive" src="@item.LogoUrl" alt="" style="border-radius:" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unvan)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.HeaderId }) |
+                    @*@Html.ActionLink("Details", "Details", new { id=item.HeaderId }) |*@
+                    @Html.ActionLink("Sil", "Delete", new { id = item.HeaderId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

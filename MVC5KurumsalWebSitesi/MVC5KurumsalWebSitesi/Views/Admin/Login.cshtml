@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel Girişi</title>
+    <!-- Bootstrap CSS -->
+    <link href="/TemplateFolder/AdminLayout/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="/TemplateFolder/AdminLayout/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="/TemplateFolder/AdminLayout/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="/TemplateFolder/AdminLayout/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="/TemplateFolder/AdminLayout/css/style.css" rel="stylesheet">
+    <link href="/TemplateFolder/AdminLayout/css/style-responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <form class="login-form" method="post" action="/Admin/Login/">
+            <div class="login-wrap">
+                @if(Session["AdminId"] == null)
+                {
+                <p class="text-danger"><b class="text-danger">@ViewBag.uyari </b></p>
+                }
+                <p class="login-img"><i class="icon_lock_alt"></i></p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+                    <input type="email" class="form-control" name="AdminMail" placeholder="Mail Adresinizi Giriniz" autofocus required>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                    <input type="password" class="form-control" name="AdminPassword" placeholder="Şifrenizi Giriniz" required>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me"> Beni Hatırla
+                    <span class="pull-right"> <a href="/Admin/ForgetPassword/"> Şifrenizi Unuttunuz mu?</a></span>
+                </label>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Giriş Yap</button>
+                @*<a href="/Admin/Create/" class="btn btn-info btn-lg btn-block" type="submit">Kayıt Ol</a>*@
+            </div>
+        </form>
+    </div>
+</body>
+</html>

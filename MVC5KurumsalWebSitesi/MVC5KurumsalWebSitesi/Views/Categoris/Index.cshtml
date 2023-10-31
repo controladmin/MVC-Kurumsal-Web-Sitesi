@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Categori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+<h2>Kategori Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kategori", "Create")
+</p>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriDescription)
+            </th>
+            <th>Ayarlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriDescription)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.CategoriId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.CategoriId }) |
+                    @Html.ActionLink("sil", "Delete", new { id = item.CategoriId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

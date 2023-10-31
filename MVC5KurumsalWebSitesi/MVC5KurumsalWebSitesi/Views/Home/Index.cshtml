@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    ViewBag.Title = "Anasayfa";
+}
+
+
+
+<section id="featured">
+    <!-- start slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Slider -->
+                @*buradaki kodları home SliderPartial sayfasına taşıdık burda çağırdık*@
+                @{
+                    Html.RenderAction("SliderPartial", "Home");
+                }
+                <!-- end slider -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+       
+        <!-- divider -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+        <!-- end divider -->
+        <!-- Portfolio Projects -->
+        <div class="row">
+
+            @*buradaki kodları home ServicePartial sayfasına taşıdık burda çağırdık*@
+            @{
+                Html.RenderAction("ServicePartial", "Home");
+            }        
+        </div>
+    </div>
+</section>
+
+

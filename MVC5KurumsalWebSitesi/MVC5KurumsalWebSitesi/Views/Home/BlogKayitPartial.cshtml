@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Blog>
+@using MVC5KurumsalWebSitesi.Helper 
+ @*buradaki kodlar blog sayfasından alınıp orada partial olarak çağrıldı *@
+
+
+<ul class="recent">
+    @foreach (var item in Model)
+    {
+    <li>
+        <img src="@item.ImageUrl" class="pull-left" alt="" />
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h6>
+        <p>
+            @Html.Raw(item.Icerik.Substring(0,10)).....
+        </p>
+    </li>
+    }
+</ul>

@@ -1,0 +1,16 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.About
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-12">
+        <h4>Hakkımızda</h4>
+        <img src="~/TemplateFolder/SiteLayout/img/dummies/dummy-1.jpg" alt="" class="align-center ibg-box img-responsive" />
+        <p>
+            @Html.Raw(Model.Description)
+        </p>
+    </div>
+</div>

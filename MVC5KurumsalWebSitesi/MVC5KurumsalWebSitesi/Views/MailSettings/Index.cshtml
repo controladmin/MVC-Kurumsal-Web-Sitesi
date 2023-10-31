@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.MailSetting>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Mail Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Mail Adresi Ekleme", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Smtp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Port)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SendMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MailPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnableSsl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Smtp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Port)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SendMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MailPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnableSsl)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.MailId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.MailId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.MailId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<button style="color:black" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#mailModal">
+    Test Maili Gönder
+</button>
+<div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Test Mail Gönderme</h4>
+            </div>
+            <form method="post" action="/MailSettings/TestMail">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Mail Adresinizi Giriniz</label>
+                        <input type="email" name="mail" class="form-control" required />
+                    </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Mail Gönder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

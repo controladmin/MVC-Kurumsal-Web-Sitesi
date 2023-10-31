@@ -1,0 +1,35 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.Categori
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kategori Detay Sayfası</h2>
+
+<div>
+    <h4>Kategori</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.CategoriId }) |
+    @Html.ActionLink("Liste Sayfasına Geri Dön", "Index")
+</p>

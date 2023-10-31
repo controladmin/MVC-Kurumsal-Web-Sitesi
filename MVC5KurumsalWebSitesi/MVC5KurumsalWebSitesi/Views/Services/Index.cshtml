@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Service>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+
+<h2>Hizmetler Sayfası</h2>
+
+<p>
+    @Html.ActionLink("Yeni Hizmet Girişi", "Create")
+</p>
+<table class="table table-bordered table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>Ayarlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @*html olarak değil normal yazım olarak göstermesi için Raw yazdık*@
+                    @Html.Raw(item.Aciklama)
+                </td>
+                <td>
+                    <img class="img-responsive" src="@item.ImageUrl" alt="" style="border-radius:" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.ServiceId }) |
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.ServiceId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.ServiceId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

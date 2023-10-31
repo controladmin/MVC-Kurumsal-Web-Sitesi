@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+
+<h2>Slider Sayfası</h2>
+
+<p>
+    @Html.ActionLink("Yeni Slider Ekle", "Create")
+</p>
+<table class="table table-bordered table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>Ayarlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @Html.Raw(item.Aciklama)
+                </td>
+                <td>
+                    <img class="img-responsive" src="@item.ImageUrl" alt="" style="border-radius:" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.SliderID }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.SliderID }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.SliderID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

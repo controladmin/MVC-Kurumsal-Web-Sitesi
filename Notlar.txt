@@ -1,0 +1,13 @@
+
+
+CKE Editorü proje content klasörü altına ekledik
+
+_AdminLayout içine ckeditor.js ve content.css dosyalarını ekliyoruz
+
+projeye sayfalama işlemleri için jquery.datatables kütüphanesini Nuget'ten ekliyoruz
+
+Sayfalama işlemi için jquery.datatables cdn linkleri
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>

@@ -1,0 +1,65 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.Admin
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yönetici Silme Sayfası</h2>
+
+<h3>Yöneticiyi silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Yönetici Sil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminRole)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Kaydı Sil" class="btn btn-danger" style="color:black"/> |
+            @Html.ActionLink("Admin Listesine Geri Dön", "Adminler")
+        </div>
+    }
+</div>

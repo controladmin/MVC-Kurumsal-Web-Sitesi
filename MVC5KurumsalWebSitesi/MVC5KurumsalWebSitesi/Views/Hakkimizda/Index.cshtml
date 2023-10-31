@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script>
+
+    $(document).ready(function () {
+        let table = new DataTable('#myTable', {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+
+</script>
+
+<style>
+    thead th {
+        background: #8b008b;
+        color: black !important;
+    }
+
+    /* tbody tr:nth-child(even) {
+        background: #daa520;
+    }
+
+    tbody tr:nth-child(odd) {
+        background: #fafad2;
+    }*/
+
+    table tbody {
+        background: #000000;
+        color: white;
+    }
+
+        table tbody:hover {
+            color: black;
+        }
+</style>
+
+
+<h2>Hakkımızda Sayfası</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table table-bordered table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>Ayarlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*ckeditor kullandığımızda kalın yazı yazınca html etiketi ile geliyor normal gelsin diye Raw etiketini kullandık*@
+                    @Html.Raw(item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.AboutId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.AboutId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

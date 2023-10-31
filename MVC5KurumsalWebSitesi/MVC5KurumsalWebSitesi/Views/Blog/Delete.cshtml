@@ -1,0 +1,39 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.Blog
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Düzenleme Sayfası</h2>
+<br />
+<span>kaydı silmek istediğinizden emin misiniz?</span>
+<br />
+<div class="form">
+    <form class="form-validate form-horizontal" id="delete" method="post" action="/Blog/Delete/@Model.BlogId" enctype="multipart/form-data">
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Başlık <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="baslik" name="Baslik" minlength="5" type="text" value="@Model.Baslik" required />
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cemail" class="control-label col-lg-2">İçerik <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <textarea name="Icerik" class="ckeditor" required>@Model.Icerik</textarea>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cemail" class="control-label col-lg-2">Resim <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <img class="img-responsive" src="@Model.ImageUrl" alt="" style="border-radius:" width="100" height="100" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-danger" type="submit" style="color:black">Kaydı Sil</button>
+                <button class="btn btn-warning" style="color:black" type="button"><a href="/Blog/Index/"> İptal</a></button>
+            </div>
+        </div>
+    </form>
+</div>
+

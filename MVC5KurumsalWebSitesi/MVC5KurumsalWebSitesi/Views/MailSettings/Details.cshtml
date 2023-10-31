@@ -1,0 +1,59 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.MailSetting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Mail Detay Sayfası</h2>
+
+<div>
+    <h4>Mail Detay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Smtp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smtp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Port)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Port)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MailPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MailPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnableSsl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnableSsl)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.MailId }) |
+    @Html.ActionLink("Mail Listesine Geri Dön", "Index")
+</p>

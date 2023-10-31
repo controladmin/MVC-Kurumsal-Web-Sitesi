@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Slider>
+@using MVC5KurumsalWebSitesi.Helper
+
+@{
+    Layout = null;
+}
+
+@*Home index içindeki slider kodlarını bu partial view içerisine aldık home index sayfasında partial oalrak çağırdık*@
+
+<div id="main-slider" class="flexslider">
+    <ul class="slides">
+        @foreach (var item in Model)
+        {
+            <li>
+                <img src="@item.ImageUrl" alt="@item.Baslik" />
+                <div class="flex-caption">
+                    <h3>@item.Baslik</h3>
+                    <p>@item.Aciklama</p>
+                    <a href="/Home/SliderDetay/@item.SliderID/" class="btn btn-theme">Devamını Oku</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

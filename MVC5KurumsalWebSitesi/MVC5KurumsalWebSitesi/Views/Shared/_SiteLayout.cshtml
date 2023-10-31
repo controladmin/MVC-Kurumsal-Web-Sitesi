@@ -1,0 +1,98 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - @ViewBag.header.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@Html.Raw(ViewBag.header.Description)" />
+    <meta name="keywords" content="@ViewBag.header.Keywords" />
+
+
+    <!--css-->
+    <link href="/TemplateFolder/SiteLayout/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/TemplateFolder/SiteLayout/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="/TemplateFolder/SiteLayout/css/jcarousel.css" rel="stylesheet" />
+    <link href="/TemplateFolder/SiteLayout/css/flexslider.css" rel="stylesheet" />
+    <link href="/TemplateFolder/SiteLayout/css/style.css" rel="stylesheet" />
+
+    <!--Theme skin-->
+    @*<link href="/TemplateFolder/SiteLayout/skins/default.css" rel="stylesheet" />*@
+
+
+    <!-- =======================================================
+    Theme Name:
+    Theme URL:
+    Author:
+    Author URL:
+    ======================================================= -->
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- start header -->
+        <header>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><span>K</span>urumsal Web Sitesi <img src="@ViewBag.header.LogoUrl" alt="" width="100" height="50" /> @ViewBag.header.Unvan</a>
+                    </div>
+                    <div class="navbar-collapse collapse ">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/Anasayfa/">Ana Sayfa</a></li>
+                            @*<li class="dropdown">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Hakkımızda <b class=" icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/About/">Hakkımızda</a></li>
+                                        <li><a href="/Service/">Hizmetlerimiz</a></li>
+                                        <li><a href="pricingbox.html">Pricing box</a></li>
+                                    </ul>
+                            </li>*@
+                            <li><a href="/About/">Hakkımızda</a></li>
+                            <li><a href="/Service/">Hizmetlerimiz</a></li>
+                            <li><a href="/BlogPost/">Blog</a></li>
+                            <li><a href="/Iletisim/">İletişim</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        @*buradaki kodlar home index ve main index sayfasına taşındı bu iki sayfadan birini site sayfası olarak kullanacağız*@
+
+    
+        @RenderBody()
+    
+        @{
+            Html.RenderAction("FooterPartial", "Home");
+        }
+
+     </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    @*<script src="/TemplateFolder/SiteLayout/js/jquery.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/jquery.easing.1.3.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/bootstrap.min.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/jquery.fancybox.pack.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/jquery.fancybox-media.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/google-code-prettify/prettify.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/portfolio/jquery.quicksand.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/portfolio/setting.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/jquery.flexslider.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/animate.js"></script>
+    <script src="/TemplateFolder/SiteLayout/js/custom.js"></script>*@
+
+</body>
+</html>

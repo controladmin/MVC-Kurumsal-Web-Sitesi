@@ -1,0 +1,78 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.Slider
+
+@{
+    ViewBag.Title = "SliderDetay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<h2>Slider Detay Sayfası</h2>
+
+@*<div>
+        <h4>Slider</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Baslik)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImageUrl)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SliderID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">Slider Detay</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <article>
+                    <div class="post-image">
+                        <div class="post-heading">
+                            <h3>@Model.Baslik</h3>
+                        </div>
+                        <img src="@Model.ImageUrl" alt="@Model.Baslik" />
+                    </div>
+                    <p>
+                        @Html.Raw(Model.Aciklama)
+                    </p>
+                </article>          
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MVC5KurumsalWebSitesi.Models.Model.Context.Categori>
+@using MVC5KurumsalWebSitesi.Helper
+
+<ul class="cat">
+    @foreach (var item in Model)
+    {
+        <li><i class="icon-angle-right"></i><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.CategoriName).ToLower()/@item.CategoriId">@item.CategoriName</a><span>(@item.Blogs.Count())</span></li>
+    }
+</ul>

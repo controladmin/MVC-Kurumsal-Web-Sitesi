@@ -1,0 +1,65 @@
+﻿@model MVC5KurumsalWebSitesi.Models.Model.Context.MailSetting
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Mail Silme Sayfası</h2>
+
+<h3>Mail adresini silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Mail Sil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Smtp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smtp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Port)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Port)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MailPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MailPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnableSsl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnableSsl)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Maili Sil" class="btn btn-danger" style="color:black"/> |
+            @Html.ActionLink("Mail Listesine Geri Dön", "Index")
+        </div>
+    }
+</div>
